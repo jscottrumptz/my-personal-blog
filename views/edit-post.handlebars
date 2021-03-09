@@ -1,30 +1,48 @@
-<article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
+<article class="bg-blue-400 p-4 rounded-md">
+  <h2 class="text-xl font-semibold">
     Edit Post
   </h2>
-  <form class="edit-post-form">
-    <div>
-      Title <input name="post-title" type="text" value="{{post.title}}" /> </br>
-      Content <input name="post-content" type="text" value="{{post.content}}" />
-    </div>
-    <div>
+  <div class="font-medium text-gray-600">
       by you on {{format_date post.created_at}}
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+  </div>
+  <form class="edit-post-form">
+    <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+      <div class="sm:col-span-4">
+        <label for="post-title" class="block text-sm font-medium text-gray-700">
+          Title
+        </label>
+        <div class="mt-1 flex rounded-md shadow-sm">
+          <input type="text" id="post-title" name="post-title" value="{{post.title}}" class="p-3 flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-none rounded-md sm:text-sm border-gray-300">
+        </div>
+      </div>
+
+      <div class="sm:col-span-6">
+        <label for="post-content" class="block text-sm font-medium text-gray-700">
+          Content
+        </label>
+        <div class="mt-1">
+          <textarea id="post-content" name="post-content" rows="3" placeholder="{{post.content}}" class="p-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+        </div>     
+      </div>
+      <button type="submit" class="m-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        Save
+      </button>
+      <button type="button" class="delete-post-btn m-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+        Delete
+      </button>
   </form>
 </article>
 
 <form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
+  <div class="m-5">
+    <div class="mt-1">
+      <textarea name="comment-body" rows="3" class="p-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+    </div>
+    <button type="submit" class="mt-4 ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+      add comment
+    </button>
   </div>
 </form>
 {{> comments post.comments}}

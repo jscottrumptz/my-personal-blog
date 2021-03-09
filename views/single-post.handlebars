@@ -1,12 +1,13 @@
 {{> post-info post }}
 {{#if loggedIn}}
 <form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
+  <div class="m-5">
+    <div class="mt-1">
+      <textarea name="comment-body" rows="3" class="p-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+    </div>
+    <button type="submit" class="mt-4 ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+      add comment
+    </button>
   </div>
 </form>
 {{/if}}
