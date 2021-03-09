@@ -50,7 +50,7 @@ app.set('view engine', 'handlebars');
 // We're importing the connection to Sequelize from config/connection.js.
 // Then we use the sequelize.sync() method to establish the connection to the database. 
 // Then start the server
-sequelize.sync({ force:true }).then(() => {
+sequelize.sync({ force:false }).then(() => {
     app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
 });
 
