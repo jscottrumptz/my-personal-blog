@@ -2,11 +2,8 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
-// middleware
-const withAuth = require('../utils/auth');
-
 // homepage
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     // to console-log the session variables
     Post.findAll({
     attributes: [
