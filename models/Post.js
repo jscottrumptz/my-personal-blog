@@ -24,7 +24,7 @@ Post.init(
             }
         },
         content: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
                 // the content must be at least 1 character long
