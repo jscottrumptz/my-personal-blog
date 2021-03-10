@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 3001;
 
 // This code sets up an Express.js session and connects the session to our Sequelize database. 
 const sess = {
-    secret: process.env.SECRET,
+    secret: '53cr3t50m3th1ng',
     cookie: {
         // Specifies the number (in milliseconds) to use when calculating the Expires Set-Cookie attribute.
         maxAge: 60 * 1000
