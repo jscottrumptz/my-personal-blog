@@ -27,5 +27,14 @@ async function editFormHandler(event) {
         alert(response.statusText);
     }
 }
+const id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+];
+
+const valueResponse = fetch(`/api/posts/${id}`)
+.then(response => response.json())
+.then(data => document.querySelector('textarea[name="post-content"]').value = data.content);
+
+
   
-  document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
+document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
