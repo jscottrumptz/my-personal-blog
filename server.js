@@ -23,7 +23,7 @@ const sess = {
     secret: '53cr3t50m3th1ng',
     cookie: {
         // Specifies the number (in milliseconds) to use when calculating the Expires Set-Cookie attribute.
-        maxAge: 60 * 1000
+        maxAge: 300 * 1000
     },
     resave: false,
     // resets maxAge counter on every server response.
@@ -55,7 +55,7 @@ app.set('view engine', 'handlebars');
 // We're importing the connection to Sequelize from config/connection.js.
 // Then we use the sequelize.sync() method to establish the connection to the database. 
 // Then start the server
-sequelize.sync({ force:true }).then(() => {
+sequelize.sync({ force:false }).then(() => {
     app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
 });
 
